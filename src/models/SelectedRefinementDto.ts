@@ -13,18 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ModelBoolean } from './ModelBoolean';
-import {
-    ModelBooleanFromJSON,
-    ModelBooleanFromJSONTyped,
-    ModelBooleanToJSON,
-} from './ModelBoolean';
-import type { ModelString } from './ModelString';
-import {
-    ModelStringFromJSON,
-    ModelStringFromJSONTyped,
-    ModelStringToJSON,
-} from './ModelString';
 import type { NavigationTypeDto } from './NavigationTypeDto';
 import {
     NavigationTypeDtoFromJSON,
@@ -70,16 +58,16 @@ export interface SelectedRefinementDto {
     high?: number;
     /**
      * Field which is indicated that it is dynamic navigation.
-     * @type {ModelString}
+     * @type {string}
      * @memberof SelectedRefinementDto
      */
-    source?: ModelString;
+    source?: string;
     /**
      * Navigation multiselect. Indicate that it is possibly to select more than one navigation value due to search request.
-     * @type {ModelBoolean}
+     * @type {boolean}
      * @memberof SelectedRefinementDto
      */
-    or?: ModelBoolean;
+    or?: boolean;
 }
 
 /**
@@ -108,8 +96,8 @@ export function SelectedRefinementDtoFromJSONTyped(json: any, ignoreDiscriminato
         'value': !exists(json, 'value') ? undefined : json['value'],
         'low': !exists(json, 'low') ? undefined : json['low'],
         'high': !exists(json, 'high') ? undefined : json['high'],
-        'source': !exists(json, 'source') ? undefined : ModelStringFromJSON(json['source']),
-        'or': !exists(json, 'or') ? undefined : ModelBooleanFromJSON(json['or']),
+        'source': !exists(json, 'source') ? undefined : json['source'],
+        'or': !exists(json, 'or') ? undefined : json['or'],
     };
 }
 
@@ -127,8 +115,8 @@ export function SelectedRefinementDtoToJSON(value?: SelectedRefinementDto | null
         'value': value.value,
         'low': value.low,
         'high': value.high,
-        'source': ModelStringToJSON(value.source),
-        'or': ModelBooleanToJSON(value.or),
+        'source': value.source,
+        'or': value.or,
     };
 }
 
