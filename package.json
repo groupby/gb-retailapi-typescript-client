@@ -1,6 +1,6 @@
 {
   "name": "@groupby/gb-retailapi-client",
-  "version": "0.0",
+  "version": "0.0.0",
   "description": "OpenAPI client for @groupby/gb-retailapi-client",
   "author": "OpenAPI-Generator",
   "repository": {
